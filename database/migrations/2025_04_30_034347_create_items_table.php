@@ -12,7 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('name');
+            $table->string('processor');
+            $table->string('ram');
+            $table->string('storage');
+            $table->string('gpu')->nullable();
+            $table->integer('price');
+            $table->string('condition')->nullable();
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->text('keyword')->nullable(); // untuk Content-Based Filtering
             $table->timestamps();
         });
     }
