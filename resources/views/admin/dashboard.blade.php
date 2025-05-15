@@ -79,6 +79,7 @@
                         <th>Penyimpanan</th>
                         <th>GPU</th>
                         <th>Kondisi</th>
+                        <th>Status</th> {{-- Tambahkan kolom Status --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -91,10 +92,18 @@
                             <td>{{ $item->storage }}</td>
                             <td>{{ $item->gpu }}</td>
                             <td>{{ ucfirst($item->condition) }}</td>
+                            <td>
+                                @if ($item->isSold)
+                                    <span class="badge bg-danger">Terjual</span>
+                                @else
+                                    <span class="badge bg-success">Tersedia</span>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -33,13 +34,25 @@ class ItemController extends Controller
             'description' => 'nullable|string',
             'image' => 'nullable|file|image|max:2048',
             'keyword' => 'nullable|string',
+            'isSold' => 'nullable|boolean',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        Item::create($request->all());
+        $data = $request->all();
+
+        // Handle upload image
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('items', 'public'); // disimpan di storage/app/public/items
+        }
+
+        // Konversi checkbox isSold ke boolean
+        $data['isSold'] = $request->has('isSold');
+
+
+        Item::create($data);
 
         return redirect()->route('admin.item.index')->with('success', 'Item created successfully');
     }
@@ -54,9 +67,9 @@ class ItemController extends Controller
         return view('admin.item.edit', compact('item'));
     }
 
-    public function update(Request $request, Item $item)
+    public function update(Request $request, $id)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'processor' => 'required|string|max:255',
             'ram' => 'required|string|max:255',
@@ -65,14 +78,36 @@ class ItemController extends Controller
             'price' => 'required|integer',
             'condition' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|string|max:255',
+            'image' => 'nullable|file|image|max:2048',
             'keyword' => 'nullable|string',
+            'isSold' => 'nullable|boolean',
         ]);
 
-        $item->update($request->all());
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $item = Item::findOrFail($id);
+
+        $data = $request->all();
+
+        // Handle upload image baru (hapus lama jika ada)
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($item->image && Storage::disk('public')->exists($item->image)) {
+                Storage::disk('public')->delete($item->image);
+            }
+            $data['image'] = $request->file('image')->store('items', 'public');
+        } else {
+            // Tetap gunakan gambar lama jika tidak upload gambar baru
+            $data['image'] = $item->image;
+        }
+
+        $item->update($data);
 
         return redirect()->route('admin.item.index')->with('success', 'Item updated successfully');
     }
+
 
     public function destroy(Item $item)
     {

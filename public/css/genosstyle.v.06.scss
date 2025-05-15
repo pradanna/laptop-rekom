@@ -26,9 +26,78 @@ $tinggi-navbar: 60px;
 // SIDEBAR
 body {
 //   font-family: "Baloo Thambi 2", system-ui;
-font-family: 'Lato', sans-serif;
-  background-color: #e5f1f9;
+font-family: 'Poppins', sans-serif;
+
+  background-color: #faf7f5;
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.hero {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+}
+
+.rekomendasi {
+    padding: 80px 0;
+}
+
+.tentang-kami {
+    padding: 80px 0;
+    background-color: #f0f0f0;
+}
+
+.footer {
+    background-color: #222;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.tentang-kami {
+    background-image: url('/images/local/bg-tentang.jpg'); /* Ganti dengan path sesuai kamu */
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.tentang-kami .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Hitam transparan */
+    z-index: 1;
+}
+
+.tentang-kami .container {
+    z-index: 2;
+    position: relative;
+}
+
+.tentang-kami h2 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.tentang-kami p.lead {
+    font-size: 1.25rem;
+}
+
 
 
 /* Tombol Keranjang dengan Badge */
@@ -858,7 +927,7 @@ font-family: 'Lato', sans-serif;
 
 .footer {
   padding: 50px 10%;
-  background-color: #eafbff;
+  background-color: #f7f0eb;
   .footer-logo {
     width: 300px;
   }
@@ -919,7 +988,7 @@ font-family: 'Lato', sans-serif;
 
 .contact {
   padding: 10px 10%;
-  background-color: #eafbff;
+  background-color: #f7f0eb;
 
   .header {
     font-size: 1.5rem;
@@ -1549,18 +1618,87 @@ width: 100%;
   }
 }
 
-// CONTACT
-.contact-map {
-  position: relative;
-  height: 600px;
-  width: 100vw;
-  z-index: -20;
-  margin-top: -50px;
-  .maps {
-    width: 100%;
-    height: 100%;
+.contact {
+    padding: 30px 10%;
+    background-color: #f7f0eb;
+    text-align: center;
   }
+
+  .contact .header {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .contact-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .info {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .icon-text {
+    font-size: 28px;
+    color: #007b8f;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .info p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .divider {
+    border-bottom: 1px solid #eee;
+    margin: 0 0;
+  }
+
+  .user-box {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #ccc; /* garis tipis */
+    border-radius: 8px; /* rounded */
+    background-color: rgba(0, 0, 0, 0.03); /* samar */
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
 }
+
+.site-footer {
+    background-color: #f1f1f1;
+    padding: 20px 10%;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+    margin-top: 50px;
+  }
+
+  .site-footer .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+
+.user-box:hover {
+    background-color: rgba(0, 0, 0, 0.06); /* sedikit lebih gelap saat hover */
+}
+
+
+
 
 .morethan10000 {
   height: 500px;

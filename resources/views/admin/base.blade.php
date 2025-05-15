@@ -111,29 +111,7 @@
         {{-- BODY --}}
         <div class="gen-body  ">
 
-            {{-- BOTTOMBAR --}}
-            <div class="bottombar">
-                <a href="/admin/dashboard" class="nav-button {{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined ">
-                        dashboard
-                    </span>
-                    <span class="text-menu"> Beranda</span>
-                </a>
-                <a href="/admin/datatitik" class="nav-button {{ Request::is('admin/datatitik') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined">
-                        desktop_windows
-                    </span>
-                    <span class="text-menu"> Data Titik</span>
-                </a>
 
-                <a href="/admin/profile" class="nav-button {{ Request::is('admin/profile') ? 'active' : '' }}">
-                    <span class="material-symbols-outlined">
-                        account_circle
-                    </span>
-                    <span class="text-menu"> Profile</span>
-                </a>
-
-            </div>
 
             {{-- NAVBAR --}}
             <div class="gen-nav">
@@ -148,14 +126,7 @@
                     </a>
                 </div>
                 <div class="end">
-                    <a class="iconbtn " id="dropdownnotif" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="badges">
-                        </span>
-                        <span class="material-symbols-outlined">
-                            mail
-                        </span>
 
-                    </a>
                     {{-- <div class="dropdown-menu menudropdown notif" aria-labelledby="dropdownnotif">
                         <div class="title-container">
                             <p class="title">Notification</p>

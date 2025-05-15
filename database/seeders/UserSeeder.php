@@ -38,5 +38,19 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 'pembeli',
         ]);
+
+        Member::create([
+            'user_id' => 2, // ID Pembeli Satu
+            'name' => 'Pembeli Satu',
+            'phone' => '081234567890',
+            'address' => 'Jl. Mawar No.1, Sukoharjo',
+        ]);
+
+        Member::create([
+            'user_id' => 3, // ID Pembeli Dua
+            'name' => 'Pembeli Dua',
+            'phone' => '082345678901',
+            'address' => 'Jl. Melati No.2, Sukoharjo',
+        ]);
     }
 }

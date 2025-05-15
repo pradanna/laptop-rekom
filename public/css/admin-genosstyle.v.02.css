@@ -58,11 +58,11 @@ body {
   font-size: 0.8rem;
 }
 .admin .sidebar .menu-container .menu.active {
-  background-color: #4fd0f3;
+  background-color: #fc9928;
   color: white;
 }
 .admin .sidebar .menu-container .menu:hover {
-  background-color: rgb(204, 237, 250);
+  background-color: rgb(250, 235, 204);
 }
 .admin .sidebar .footer {
   font-size: 0.8rem;
@@ -76,7 +76,7 @@ body {
   color: gray;
 }
 .admin .sidebar .footer .bot {
-  color: #4fd0f3;
+  color: #fc9928;
   font-weight: bold;
 }
 .admin .gen-body {
@@ -119,7 +119,7 @@ body {
   display: block;
 }
 .admin .gen-body .gen-nav .start .nav-button:hover {
-  background: rgb(204, 237, 250);
+  background: rgb(250, 235, 204);
   color: black;
 }
 .admin .gen-body .gen-nav .end {
@@ -150,7 +150,7 @@ body {
   background-color: #ed2a3a;
 }
 .admin .gen-body .gen-nav .end .iconbtn:hover {
-  background: rgb(204, 237, 250);
+  background: rgb(250, 235, 204);
   color: black;
 }
 .admin .gen-body .gen-nav .end .profile-button {
@@ -195,7 +195,7 @@ body {
   all: unset;
   cursor: pointer;
   display: block;
-  color: #4fd0f3;
+  color: #fc9928;
   border-radius: 0;
   transition: all 300ms ease-in-out;
 }
@@ -245,7 +245,7 @@ body {
 .admin .gen-body .gen-nav .menudropdown.notif .title-container .action {
   all: unset;
   font-weight: bold;
-  color: #4fd0f3;
+  color: #fc9928;
   cursor: pointer;
   transition: all 100ms ease-in-out;
 }
@@ -343,7 +343,7 @@ body {
   color: gray;
 }
 .admin .gen-body .gen-content .dashboard .status-container .card-status .content .stat .val {
-  color: #4fd0f3;
+  color: #fc9928;
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -357,7 +357,7 @@ body {
   color: green;
 }
 .admin .gen-body .gen-content .dashboard .status-container .card-status .content .report p span.down {
-  color: #4fd0f3;
+  color: #fc9928;
 }
 .admin .gen-body .gen-content .dashboard .status-container .card-status .icon-container {
   width: 50px;
@@ -366,7 +366,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #4fd0f3;
+  background-color: #fc9928;
 }
 .admin .gen-body .gen-content .dashboard .status-container .card-status .icon-container span {
   color: white;
@@ -435,8 +435,8 @@ body {
 .admin .gen-body .gen-content .dashboard .menu-container .menu .title-container .action {
   all: unset;
   display: flex;
-  background-color: rgb(204, 237, 250);
-  color: #4fd0f3;
+  background-color: rgb(250, 235, 204);
+  color: #fc9928;
   padding: 3px 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -469,7 +469,7 @@ body {
 .admin.minimize .sidebar .menu-container .tooltip .tooltiptext {
   display: none;
   white-space: nowrap;
-  background-color: rgb(204, 237, 250);
+  background-color: rgb(250, 235, 204);
   color: black;
   text-align: center;
   border-radius: 0 50px 50px 0;
@@ -540,8 +540,8 @@ body {
 }
 .admin .page-item.active .page-link {
   color: white !important;
-  background-color: #4fd0f3 !important;
-  border-color: #4fd0f3 !important;
+  background-color: #fc9928 !important;
+  border-color: #fc9928 !important;
 }
 .admin div.dataTables_wrapper div.dataTables_filter {
   text-align: end;
@@ -581,7 +581,7 @@ body {
 .admin .btn-primary-sm {
   all: unset;
   cursor: pointer;
-  background-color: #4fd0f3;
+  background-color: #fc9928;
   padding: 3px 10px;
   border-radius: 5px;
   color: white;
@@ -625,7 +625,7 @@ body {
   cursor: pointer !important;
 }
 .admin .breadcrumb-item.active {
-  color: #4fd0f3 !important;
+  color: #fc9928 !important;
 }
 .admin table td {
   font-size: 0.8rem;
@@ -757,7 +757,7 @@ input.form-control {
   all: unset;
   transition: all 0.5s;
   display: block;
-  background-color: #4fd0f3;
+  background-color: #fc9928;
   color: white;
   border-radius: 5px;
   font-weight: bold;
@@ -882,7 +882,7 @@ input.form-control {
     align-items: center;
   }
   .admin .gen-body .bottombar .nav-button.active {
-    color: #4fd0f3;
+    color: #fc9928;
     font-weight: bold;
   }
   .admin .gen-body .bottombar .nav-button .text-menu {

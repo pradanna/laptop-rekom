@@ -12,7 +12,7 @@ class Transaction extends Model
 
     public $incrementing = false;
     protected $keyType = 'string';
-    protected $fillable = ['user_id', 'total', 'status'];
+    protected $fillable = ['user_id', 'total', 'status', 'proof'];
 
     protected static function boot()
     {
@@ -25,5 +25,15 @@ class Transaction extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(TransactionItem::class);
+    }
+
+    public function member()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

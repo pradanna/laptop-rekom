@@ -73,30 +73,63 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="mb-3"><label>Nama</label><input type="text" name="name"
-                                            value="{{ $item->name }}" class="form-control" required></div>
-                                    <div class="mb-3"><label>Processor</label><input type="text" name="processor"
-                                            value="{{ $item->processor }}" class="form-control"></div>
-                                    <div class="mb-3"><label>RAM</label><input type="text" name="ram"
-                                            value="{{ $item->ram }}" class="form-control"></div>
-                                    <div class="mb-3"><label>Storage</label><input type="text" name="storage"
-                                            value="{{ $item->storage }}" class="form-control"></div>
-                                    <div class="mb-3"><label>GPU</label><input type="text" name="gpu"
-                                            value="{{ $item->gpu }}" class="form-control"></div>
-                                    <div class="mb-3"><label>Harga</label><input type="number" name="price"
-                                            value="{{ $item->price }}" class="form-control" required></div>
-                                    <div class="mb-3"><label>Kondisi</label><input type="text" name="condition"
-                                            value="{{ $item->condition }}" class="form-control"></div>
-                                    <div class="mb-3"><label>Deskripsi</label>
-                                        <textarea name="description" class="form-control">{{ $item->description }}</textarea>
+                                    <div class="row">
+                                        {{-- Kolom Kiri --}}
+                                        <div class="col-md-6">
+                                            <div class="mb-3"><label>Nama</label>
+                                                <input type="text" name="name" value="{{ $item->name }}"
+                                                    class="form-control" required>
+                                            </div>
+                                            <div class="mb-3"><label>Processor</label>
+                                                <input type="text" name="processor" value="{{ $item->processor }}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="mb-3"><label>RAM</label>
+                                                <input type="text" name="ram" value="{{ $item->ram }}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="mb-3"><label>Storage</label>
+                                                <input type="text" name="storage" value="{{ $item->storage }}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="mb-3"><label>GPU</label>
+                                                <input type="text" name="gpu" value="{{ $item->gpu }}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="mb-3"><label>Harga</label>
+                                                <input type="number" name="price" value="{{ $item->price }}"
+                                                    class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        {{-- Kolom Kanan --}}
+                                        <div class="col-md-6">
+                                            <div class="mb-3"><label>Kondisi</label>
+                                                <input type="text" name="condition" value="{{ $item->condition }}"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="mb-3"><label>Deskripsi</label>
+                                                <textarea name="description" class="form-control">{{ $item->description }}</textarea>
+                                            </div>
+                                            <div class="mb-3"><label>Keyword</label>
+                                                <textarea name="keyword" class="form-control">{{ $item->keyword }}</textarea>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" name="isSold"
+                                                    value="1" {{ $item->isSold ? 'checked' : '' }}>
+                                                <label class="form-check-label">Tandai sebagai Terjual</label>
+                                            </div>
+                                            <div class="mb-3"><label>Gambar (upload baru jika ingin ganti)</label>
+                                                <input type="file" name="image" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-3"><label>Gambar (upload baru jika ingin ganti)</label><input
-                                            type="file" name="image" class="form-control"></div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
+
 
                         </div>
                     </div>
@@ -125,32 +158,55 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3"><label>Nama</label><input type="text" name="name" class="form-control"
-                            required></div>
-                    <div class="mb-3"><label>Processor</label><input type="text" name="processor"
-                            class="form-control">
-                    </div>
-                    <div class="mb-3"><label>RAM</label><input type="text" name="ram" class="form-control">
-                    </div>
-                    <div class="mb-3"><label>Storage</label><input type="text" name="storage" class="form-control">
-                    </div>
-                    <div class="mb-3"><label>GPU</label><input type="text" name="gpu" class="form-control">
-                    </div>
-                    <div class="mb-3"><label>Harga</label><input type="number" name="price" class="form-control"
-                            required></div>
-                    <div class="mb-3"><label>Kondisi</label><input type="text" name="condition"
-                            class="form-control">
-                    </div>
-                    <div class="mb-3"><label>Deskripsi</label>
-                        <textarea name="description" class="form-control"></textarea>
-                    </div>
-                    <div class="mb-3"><label>Gambar</label><input type="file" name="image" class="form-control">
+                    <div class="row">
+                        {{-- Kolom Kiri --}}
+                        <div class="col-md-6">
+                            <div class="mb-3"><label>Nama</label>
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+                            <div class="mb-3"><label>Processor</label>
+                                <input type="text" name="processor" class="form-control">
+                            </div>
+                            <div class="mb-3"><label>RAM</label>
+                                <input type="text" name="ram" class="form-control">
+                            </div>
+                            <div class="mb-3"><label>Storage</label>
+                                <input type="text" name="storage" class="form-control">
+                            </div>
+                            <div class="mb-3"><label>GPU</label>
+                                <input type="text" name="gpu" class="form-control">
+                            </div>
+                            <div class="mb-3"><label>Harga</label>
+                                <input type="number" name="price" class="form-control" required>
+                            </div>
+                        </div>
+
+                        {{-- Kolom Kanan --}}
+                        <div class="col-md-6">
+                            <div class="mb-3"><label>Kondisi</label>
+                                <input type="text" name="condition" class="form-control">
+                            </div>
+                            <div class="mb-3"><label>Deskripsi</label>
+                                <textarea name="description" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3"><label>Keyword</label>
+                                <textarea name="keyword" class="form-control"></textarea>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" name="isSold" value="1">
+                                <label class="form-check-label">Tandai sebagai Terjual</label>
+                            </div>
+                            <div class="mb-3"><label>Gambar</label>
+                                <input type="file" name="image" class="form-control">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
+
 
         </div>
     </div>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Exports\TransactionExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\TransactionImport;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\User;
@@ -9,51 +12,48 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $transactions = Transaction::with('user')->latest()->get();
-        return view('admin.transaction.index', compact('transactions'));
+        $query = Transaction::with(['member', 'items.item']);
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('start_date') && $request->filled('end_date')) {
+            $query->whereBetween('created_at', [$request->start_date, $request->end_date]);
+        }
+
+        $transactions = $query->latest()->get();
+
+        return view('admin.transactions.index', compact('transactions'));
     }
 
-    public function create()
+
+    public function show(Transaction $transaction)
     {
-        $users = User::where('role', 'pembeli')->get();
-        return view('admin.transaction.create', compact('users'));
+        $transaction->load('items', 'member');
+        return view('admin.transactions.show', compact('transaction'));
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'total' => 'required|integer',
-            'status' => 'required|in:baru,diproses,selesai',
-        ]);
 
-        Transaction::create($request->all());
-        return redirect()->route('admin.transaction.index')->with('success', 'Transaction created!');
+    public function updateStatus(Transaction $transaction, $status)
+    {
+        $transaction->status = $status;
+        $transaction->save();
+
+        // Tandai semua item sebagai terjual jika transaksi diterima
+        if ($status === 'diproses') {
+            foreach ($transaction->items as $transactionItem) {
+                $transactionItem->item->update(['isSold' => true]);
+            }
+        }
+
+        return redirect()->route('admin.transactions.index')->with('success', 'Status transaksi berhasil diperbarui.');
     }
 
-    public function edit(Transaction $transaction)
+    public function export(Request $request)
     {
-        $users = User::where('role', 'pembeli')->get();
-        return view('admin.transaction.edit', compact('transaction', 'users'));
-    }
-
-    public function update(Request $request, Transaction $transaction)
-    {
-        $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'total' => 'required|integer',
-            'status' => 'required|in:baru,diproses,selesai',
-        ]);
-
-        $transaction->update($request->all());
-        return redirect()->route('admin.transaction.index')->with('success', 'Transaction updated!');
-    }
-
-    public function destroy(Transaction $transaction)
-    {
-        $transaction->delete();
-        return back()->with('success', 'Transaction deleted!');
+        return Excel::download(new TransactionExport($request), 'transactions.xlsx');
     }
 }
