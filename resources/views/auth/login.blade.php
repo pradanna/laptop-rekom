@@ -29,6 +29,11 @@
                 Swal.fire("Autentikasi Gagal ", 'Periksa Email dan Password!', "error")
             </script>
         @endif
+        @if (session('success'))
+            <script>
+                Swal.fire("Berhasil", "{{ session('success') }}", "success")
+            </script>
+        @endif
         <div class="login">
             <div class="panel-login pinggiran-bunder-10  ">
 
@@ -65,8 +70,8 @@
                             <button class="btn-login   mt-4 d-block mb-3 w-100 " type="submit">LOGIN
                             </button>
 
-                            <span class="d-block  text-center ">Bila ada kendala dalam login akun, silahkan hubungi
-                                <a href="#">admin</a></span>
+                            <span class="d-block  text-center ">Bila abelum punya akun silahkan klik
+                                <a href="/register">DAFTAR</a></span>
                         </form>
                     </div>
                 </div>

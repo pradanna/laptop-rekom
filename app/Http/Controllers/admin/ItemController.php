@@ -32,7 +32,7 @@ class ItemController extends Controller
             'price' => 'required|integer',
             'condition' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|file|image|max:2048',
+            'image' => 'nullable|file|image|max:10240',
             'keyword' => 'nullable|string',
             'isSold' => 'nullable|boolean',
         ]);

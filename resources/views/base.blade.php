@@ -92,10 +92,8 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item text-danger">Logout</button>
-                                    </form>
+                                    <a href="{{ route('logout') }}" class="d-inline text-danger ps-3"> Logout
+                                    </a>
                                 </li>
                             </ul>
                         </li>
